@@ -1,2 +1,4 @@
 # Gitcamp
-This will be a clone of Hipcamp
+Welcome to a clone of Hipcamp!
+
+
