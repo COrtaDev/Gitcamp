@@ -5,9 +5,9 @@ const { getCoordinates } = require('./locationGenerator');
 
 let location = getCoordinates();
 console.log(location)
-let { latitude, longitude } = location;
-let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GEO_API_KEY}`
-// let url = `https://api.weather.gov/points/${location.latitude},${location.longitude}`
+// let { latitude, longitude } = location;
+// let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GEO_API_KEY}`
+let url = `https://api.weather.gov/points/${location.latitude},${location.longitude}`
 // let weatherURL = 'https://api.weather.gov/gridpoints/BOI/48,101/forecast'
 // console.log(url);
 
@@ -25,10 +25,6 @@ const getState = async () => {
 }
 const getLocation = async () => {
     const res = await fetch(url);
-    // if (!res.ok) {
-    //     throw new Error("Bad Coordinates");
-    // } else {
-    // }
     const data = await res.json();
     let seedLocation = {
         latitude: location.latitude,
@@ -44,7 +40,7 @@ const getLocation = async () => {
     });
     // await write(data);
     // console.log(data);
-    // console.log(data.properties);
+    console.log(data.properties);
     console.log(data.properties.relativeLocation.properties.city);
     console.log(data.properties.relativeLocation.properties.state);
     // console.log(city, state);
